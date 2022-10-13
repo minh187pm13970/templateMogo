@@ -1,0 +1,226 @@
+.header {
+  min-height: 1000px;
+  background: linear-gradient(to bottom, rgba($primary-color, 0.8), rgba($secondary-color, 0.8)), url("../images/img-header-bg.jpg") no-repeat center / cover;
+  color: #fff;
+
+  &-logo {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  &-top {
+    padding-top: 2.8rem;
+    @include flexBox(baseline, space-between, flex);
+  }
+
+  &-menu {
+    display: flex;
+  }
+
+  &-menu-link {
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.25s linear;
+  }
+
+  &-content {
+    padding-top: 17rem;
+    text-align: center;
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  &-content-caption {
+    font-size: 7.2rem;
+    margin-bottom: 3rem;
+    font-family: $third-font;
+  }
+
+  &-content-main {
+    font-weight: 800;
+    font-size: 15rem;
+    text-transform: uppercase;
+    padding-bottom: 6rem;
+    margin-bottom: 5rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      bottom: 0;
+      @include absoluteCenter();
+      @include size(6rem,0.5rem);
+      background-color: #fff;
+    }
+  }
+
+  &-content-more {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem 3rem;
+    border: 3px solid #fff;
+    display: inline-block;
+  }
+
+  &-bottom {
+    margin-top: 15.5rem;
+    padding-bottom: 2.8rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+
+    &-text {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      margin-left: 1rem;
+    }
+
+    &-number {
+      font-weight: bold;
+      font-size: 2.4rem;
+    }
+
+    &-item {
+      border-top: 5px solid #fff;
+      padding-top: 2.5rem;
+      opacity: 0.6;
+      position: relative;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        @include size(6rem, 0.5rem);
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+      }
+
+      &.is-active {
+        opacity: 1;
+
+        &::before {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+
+  @include minWidth(768px) {
+    .header-menu-item:not(:first-child) {
+      margin-left: 5rem;
+    }
+
+    .header-menu-link {
+      padding-bottom: 10px;
+      border-bottom: 4px solid transparent;
+
+      &:hover {
+        color: $secondary-color;
+        border-bottom-color: $secondary-color;
+      }
+    }
+
+    .header-toggle {
+      display: none;
+    }
+  }
+
+  @include maxWidth(1023px) {
+    min-height: unset;
+
+    .header-content {
+      padding-top: 10rem;
+
+      &-main {
+        font-size: 10rem;
+      }
+    }
+
+    .header-bottom {
+      margin-top: 10rem;
+    }
+
+  }
+
+  @include maxWidth(767px) {
+    // .header-menu {
+    //   display: none;
+    // }
+
+    .header-content {
+      padding-top: 5rem;
+
+      &-caption {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      &-main {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      &-more {
+        font-size: 1rem;
+      }
+    }
+
+    .header-bottom {
+      margin-top: 5rem;
+
+      &-text {
+        display: none;
+      }
+
+      &-item {
+        text-align: center;
+        padding-top: 1.5rem;
+
+        &::before {
+          width: 35%;
+        }
+      }
+    }
+
+    .header-menu {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #fff;
+      @include size(15rem, auto);
+      display: block;
+      padding: 20px 25px;
+      z-index: 3;
+      transform: translateX(100%);
+      text-align: center;
+
+      &-link, &-icon {
+        color: $text-color;
+        @include size(100%, auto);
+        padding: 1rem;
+        margin-bottom: 3px;
+        border-radius: 4px;
+        display: inline-block;
+        &:hover {
+          background-color: $primary-color;
+          color: #fff;
+        }
+      }
+    }
+
+    .header-toggle {
+      align-self: center;
+      cursor: pointer;
+    }
+
+    .header-menu.is-expand {
+      transform: translateX(0);
+    }
+  }
+}

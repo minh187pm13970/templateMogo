@@ -1,0 +1,149 @@
+.story {
+  padding-block: 11rem;
+  background-color: #fff;
+  &-list {
+    @include flexBox(stretch, space-between);
+  }
+
+  &-item {
+    width: calc(33.33% - 2rem);
+  }
+
+  &-media {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  &-image {
+    @include size(100%, 24rem);
+    object-fit: cover;
+  }
+
+  &-date {
+    padding: 1.5rem 2rem;
+    background-color: $third-color;
+    @include flexBox(center, center, inline-flex, column);
+    color: #fff;
+    position: absolute;
+    bottom: 1rem;
+    left: -1rem;
+    z-index: 2;
+  }
+
+  &-date-number {
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  &-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+  }
+
+  &-desc {
+    color: $text-color;
+    font-style: normal;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &-meta {
+    @include flexBox(center);
+  }
+
+  &-meta-item:first-child {
+    margin-right: 2rem;
+  }
+
+  &-meta-icon {
+    color: $third-color;
+    margin-right: 5px;
+  }
+
+  &-meta-count {
+    color: $meta-color;
+  }
+
+  @include maxWidth(1023px) {
+    padding-block: 5rem;
+
+    &-image {
+      height: 16rem;
+    }
+
+    &-date {
+      padding: 1.5rem;
+    }
+
+    &-date-number {
+      font-size: 2rem;
+    }
+
+    &-date-text {
+      font-size: 1.3rem;
+    }
+
+    &-title {
+      font-size: 1.2rem;
+    }
+
+    &-desc {
+      font-size: 1.3rem;
+      &-inner {
+        @include textClamp(3);
+      }
+      // padding bị lỗi => tạo thẻ bên trong
+    }
+  }
+
+  @include maxWidth(767px) {
+    padding-bottom: 0;
+    &-list {
+      display: block;
+    }
+
+    &-item {
+      width: 100%;
+      margin-bottom: 5rem;
+    }
+
+    &-date {
+      bottom: 5px;
+      left: -5px;
+    }
+
+    &-image {
+      height: 24rem;
+    }
+  }
+}
+
+.map {
+  padding-block: 6rem 5.5rem;
+  background: linear-gradient(to bottom, rgba(white, 0.9), rgba(white, 0.8)),
+    url("../../images/img-map.png") no-repeat center/ cover;
+
+  &-content {
+    @include flexBox(center, center, flex, column);
+  }
+
+  &-heading {
+    color: $primary-color;
+    position: relative;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    margin-top: 1.5rem;
+    padding-bottom: 2rem;
+    &::after {
+      content: "";
+      @include absoluteCenter;
+      bottom: 0;
+      @include size(6rem, 0.4rem);
+      background-color: $primary-color;
+    }
+  }
+}

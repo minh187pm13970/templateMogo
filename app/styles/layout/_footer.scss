@@ -1,0 +1,186 @@
+.footer {
+  &-top {
+    padding-block: 7.5rem 7rem;
+    @include flexBox(stretch, space-between);
+  }
+
+  &-heading {
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 4rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  &-bottom {
+    text-align: center;
+    font-weight: bold;
+    padding: 2.5rem 0;
+    border-top: 1px solid $border-color;
+    span {
+      color: $primary-color;
+    }
+  }
+
+  @include maxWidth(1023px) {
+    padding-block: 3rem;
+    .footer-top {
+      display: block;
+    }
+
+    .footer-column:not(:nth-child(999)) {
+      width: 100%;
+    }
+    
+    .footer-column:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+  }
+}
+
+.footer-column:first-child {
+  width: calc(40% - 2.5rem);
+  .footer {
+    &-heading--logo {
+      font-size: 4.6rem;
+      color: $heading-color;
+      text-transform: none;
+    }
+    &-desc {
+      font-style: normal;
+      margin-bottom: 4.5rem;
+      margin-top: 2rem;
+    }
+
+    &-follower {
+      font-weight: bold;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid $border-color;
+      strong {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-social {
+      @include flexBox(center);
+      margin-bottom: 3.5rem;
+    }
+
+    &-social-icon {
+      color: $third-color;
+      margin-left: 1.5rem;
+    }
+
+    &-form {
+      width: 100%;
+      max-width: 38rem;
+      @include flexBox;
+      flex-wrap: nowrap;
+    }
+
+    &-form-input {
+      background-color: #fff;
+      padding: 1.5rem;
+      border: 1px solid $border-color;
+      border-right: 0;
+      font-size: 1.5rem;
+      font-family: $secondary-font;
+      font-style: italic;
+      width: 100%;
+      border-radius: 0; //fix loi edge (bdrs: 2px)
+      line-height: normal; //fix loi safary, firefox
+      &::placeholder {
+        color: $text-color;
+      }
+    }
+
+    &-form-button {
+      text-transform: uppercase;
+      padding: 1.5rem 3.5rem;
+      color: #fff;
+      background-color: $third-color;
+      border: 1px solid $border-color;
+      font-weight: bold;
+      flex-shrink: 0;
+      font-size: 1.4rem;
+      border-radius: 0; //fix loi edge (bdrs: 2px)
+    }
+  }
+}
+
+.footer-column:nth-child(2) {
+  width: calc(35% - 2.5rem);
+  .footer {
+    &-blog {
+      @include flexBox(center);
+      flex-wrap: nowrap;
+      margin-bottom: 3rem;
+    }
+
+    &-blog-image {
+      @include size(12rem, 8rem);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    &-blog-info {
+      padding-left: 2rem;
+    }
+
+    &-blog-title {
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color: $title-color;
+      @include textClamp(2);
+    }
+
+    &-blog-date {
+      color: $text-color;
+    }
+
+    @include maxWidth(479px) {
+      &-form-button {
+        padding: 1.5rem;
+      }
+    }
+  }
+}
+
+.footer-column:last-child {
+  width: calc(25% - 2.5rem);
+  .footer {
+    &-images {
+      @include flexBox(stretch, flex-start);
+      margin-left: -2px;
+      margin-bottom: 2rem;
+    }
+
+    &-image {
+      width: calc(33.33% - 2px);
+      height: 0;
+      position: relative;
+      padding-bottom: 33.33%;
+      margin-left: 2px;
+      &:not(:last-child) {
+        margin-bottom: 2px;
+      }
+
+      img {
+        @include size(100%);
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &-more {
+      color: $title-color;
+    }
+  }
+}

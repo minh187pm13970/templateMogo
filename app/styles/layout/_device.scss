@@ -1,0 +1,44 @@
+.device {
+  padding-top: 10rem;
+  background: linear-gradient(to bottom, rgba(white, 0.8), rgba(white, 0.7)), url("../../images/img-device-bg.png") no-repeat center / cover;
+  // &-media {
+  //   text-align: center;
+  // }
+
+  &-image {
+    display: inline-block;
+    margin: 0 auto -9.3rem;
+    // transform: translateY(9.3rem);
+
+    // block => margin-collapse: sẽ kh dùng margin âm -> chuyển về inline-block
+    @include absoluteCenter(left, relative);
+  }
+
+
+  @include maxWidth(767px) {
+    padding-top: 5rem;
+
+    .device-image {
+      max-width: 80%;
+      margin-bottom: -6.6rem;
+    }
+  }
+
+  @include maxWidth(479px) {
+    .device-image {
+      margin-bottom: -4.4rem;
+    }
+  }
+
+  @include maxWidth(376px) {
+    .device-image {
+      margin-bottom: -4rem;
+    }
+  }
+
+  @include maxWidth(321px) {
+    .device-image {
+      margin-bottom: -3.3rem;
+    }
+  }
+}

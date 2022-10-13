@@ -1,0 +1,110 @@
+.quote {
+  background-color: $gray-color;
+  padding-block: 7rem;
+  // &-wrap {
+  //   @include flexBox(center, space-between, flex, row, nowrap);
+  // }
+
+  &-item {
+    // flex: 1;
+    margin-inline: 5.5rem;
+    @include flexBox(center, flex-start, flex, row, nowrap);
+    outline: none;
+  }
+
+  &-icon {
+    @include flexBox(center, center, flex, row, nowrap);
+    @include size(15rem);
+    border: 3px solid $third-color;
+    flex-shrink: 0;
+    margin-right: 6rem;
+  }
+
+  &-image {
+    @include size(21rem);
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 2.5rem;
+  }
+
+  &-desc {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    font-family: $secondary-font;
+    font-weight: 300;
+    font-style: italic;
+    color: $text-color;
+    margin-bottom: 3.4rem;
+  }
+
+  &-author {
+    font-family: $third-font;
+    font-size: 2.4rem;
+    position: relative;
+    padding-left: 7rem;
+    &::before {
+      content: "";
+      @include size(6rem, 0.4rem);
+      background-color: $primary-color;
+      @include absoluteCenter(top);
+      left: 0;
+    }
+  }
+
+  @include maxWidth(767px) {
+    padding-block: 5rem;
+    .quote-item {
+      margin-inline: 0;
+      @include flexBox(center, flex-start, flex, column, nowrap);
+    }
+
+    .quote-image {
+      margin-right: 0;
+    }
+
+    .quote-icon {
+      @include size(10rem);
+      margin-right: 0;
+      img {
+        max-width: 50%;
+      }
+    }
+
+    .quote-info {
+      text-align: center;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    .quote-desc {
+      font-size: 1.6rem;
+    }
+
+    .quote-author {
+      font-size: 2rem;
+    }
+  }
+}
+
+// slick slider
+.slick-initialized .slick-slide {
+  display: flex;
+}
+
+.slick-arrow {
+  color: $gray-dark-color;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 2rem;
+  border: none;
+  @include absoluteCenter("top");
+  z-index: 2;
+}
+.slick-prev {
+  left: 0;
+}
+
+.slick-next {
+  right: 0;
+}

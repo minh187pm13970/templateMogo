@@ -1,0 +1,58 @@
+.service {
+  padding-block: 10rem 12rem;
+  &-list {
+    @include gridColumn(3, 1fr, 8rem);
+    &:first-of-type {
+      margin-block: 6rem 4.5rem;
+      border-bottom: 1px solid $gray-dark-color;
+      padding-bottom: 5rem;
+    }
+  }
+
+  &-item {
+    @include flexBox(flex-start, flex-start, flex, row, nowrap);
+  }
+
+  &-item-info {
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-item-icon {
+    margin-right: 3rem;
+    flex-shrink: 0;
+  }
+
+  &-item-title {
+    margin-bottom: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.4;
+    // @include textClamp;
+  }
+
+  &-item-desc {
+    font-size: 1.5rem;
+    font-family: $secondary-font;
+    color: $text-color;
+    line-height: 1.5;
+  }
+
+  @include maxWidth(767px) {
+    padding-block: 5rem;
+    .service-list {
+      grid-template-columns: unset;
+      grid-row-gap: 3rem;
+      &:first-of-type {
+        margin-block: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid $gray-dark-color;
+      }
+    }
+
+    .service-item {
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.wedo {
+  padding-block: 11rem 12rem;
+
+  &-image {
+    object-fit: cover;
+  }
+
+  &-item-header {
+    @include flexBox(center);
+    padding: 1.5rem;
+    border: 1px solid $gray-dark-color;
+  }
+
+  &-item.is-active &-item-content {
+    display: block;
+  }
+
+  &-item-title {
+    margin-right: auto;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include textClamp(1, 40%);
+  }
+
+  &-item-icon {
+    margin-right: 1.5rem;
+  }
+
+  &-item-arrow {
+    color: $gray-dark-color;
+    font-size: 3rem;
+  }
+
+  &-item-content {
+    border: 1px solid $gray-dark-color;
+    padding: 2rem;
+    font-family: $secondary-font;
+    font-weight: 300;
+    font-style: italic;
+    color: $text-color;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    border-top: 0;
+    display: none;
+  }
+
+  &-item-desc {
+    height: 13rem;
+    overflow-y: auto;
+    padding-right: 2rem;
+    &::-webkit-scrollbar {
+      width: 0.6rem;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px $gray-dark-color;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: $third-color;
+      // outline: 1px solid slategrey;
+    }
+  }
+
+  @include maxWidth(767px) {
+    padding-block: 5rem;
+
+    &-image {
+      margin-bottom: 3rem;
+    }
+
+    &-item-header {
+      margin-top: 1rem;
+    }
+  }
+
+  @include minWidth(768px) {
+    &-wrap {
+      //khong dung grid duoc vi image khong linh hoat
+      @include flexBox(stretch, space-between);
+    }
+
+    &-image,
+    &-content {
+      width: calc(50% - 1.5rem);
+    }
+
+    &-content {
+      @include flexBox(stretch, space-between, flex, column);
+    }
+  }
+}

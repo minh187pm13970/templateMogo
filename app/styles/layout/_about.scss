@@ -1,0 +1,49 @@
+.about {
+  padding-top: 9rem;
+  padding-bottom: 11rem;
+  background-color: #fff;
+
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+  }
+
+  @include hoverEffect(".about-item", ".about-content");
+
+  &-content {
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem;
+  }
+
+  &-icon {
+    font-size: 2rem;
+  }
+
+  &-title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    line-height: 1.4;
+    @include textClamp(1);
+    text-align: center;
+    @include colorWord(
+      (
+        color: red
+      )
+    );
+  }
+
+  @include maxWidth(767px) {
+    padding-block: 5rem;
+
+    .about-list {
+      @include touchSlider;
+    }
+
+    &-image {
+      width: 100%;
+    }
+  }
+}
